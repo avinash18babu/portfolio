@@ -1,209 +1,4455 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elow | Portfolio</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Avinash S - Fresher Software Engineer Portfolio">
+
+    <title>
+        AVINASH S // DOOMSDAY PROTOCOL
+    </title>
+
+
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================================
+         ALL CSS
+    ========================================== -->
+
+    <style>
+
+        /* =====================================================
+           ROOT VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --void-black: #020402;
+
+            --void: #050806;
+
+            --dark-green: #07140d;
+
+            --emerald: #0b3d2e;
+
+            --deep-emerald: #063323;
+
+            --acid-green: #39ff14;
+
+            --bright-green: #78ff67;
+
+            --soft-green: #baffb1;
+
+            --white: #f4fff2;
+
+            --muted: #9aac9f;
+
+            --dark-muted: #53685b;
+
+            --border: rgba(57, 255, 20, 0.25);
+
+            --border-bright: rgba(57, 255, 20, 0.65);
+
+            --panel:
+                rgba(4, 14, 8, 0.78);
+
+            --panel-light:
+                rgba(9, 27, 17, 0.65);
+
+            --green-glow:
+                rgba(57, 255, 20, 0.18);
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            background:
+                var(--void);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            overflow-x:
+                hidden;
+
+            cursor:
+                none;
+
+        }
+
+
+        a {
+
+            text-decoration:
+                none;
+
+            color:
+                inherit;
+
+        }
+
+
+        button,
+        input,
+        textarea {
+
+            font-family:
+                inherit;
+
+        }
+
+
+        ::selection {
+
+            background:
+                var(--acid-green);
+
+            color:
+                #021004;
+
+        }
+
+
+
+        /* =====================================================
+           CINEMATIC BACKGROUND
+        ===================================================== */
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                -10;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0, 5, 3, 0.96) 0%,
+                    rgba(2, 10, 6, 0.82) 30%,
+                    rgba(2, 10, 6, 0.58) 65%,
+                    rgba(0, 5, 3, 0.82) 100%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.9)
+                ),
+
+                url("background.jpg");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+            background-repeat:
+                no-repeat;
+
+            filter:
+                brightness(0.48)
+                saturate(0.7)
+                contrast(1.15);
+
+            transform:
+                scale(1.05);
+
+        }
+
+
+        /* =====================================================
+           SCAN LINES
+        ===================================================== */
+
+        body::after {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                -5;
+
+            pointer-events:
+                none;
+
+            background:
+
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(57, 255, 20, 0.025)
+                    0px,
+                    rgba(57, 255, 20, 0.025)
+                    1px,
+                    transparent
+                    1px,
+                    transparent
+                    5px
+                );
+
+            opacity:
+                0.7;
+
+        }
+
+
+
+        /* =====================================================
+           PARTICLE FIELD
+        ===================================================== */
+
+        #particles {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                -1;
+
+            pointer-events:
+                none;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .particle {
+
+            position:
+                absolute;
+
+            width:
+                2px;
+
+            height:
+                2px;
+
+            background:
+                var(--acid-green);
+
+            border-radius:
+                50%;
+
+            box-shadow:
+                0 0 10px var(--acid-green);
+
+            animation:
+                floatingParticle
+                linear
+                infinite;
+
+        }
+
+
+        @keyframes floatingParticle {
+
+            from {
+
+                transform:
+                    translateY(110vh);
+
+            }
+
+            to {
+
+                transform:
+                    translateY(-10vh);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CUSTOM CURSOR
+        ===================================================== */
+
+        .cursor {
+
+            position:
+                fixed;
+
+            width:
+                32px;
+
+            height:
+                32px;
+
+            z-index:
+                99999;
+
+            pointer-events:
+                none;
+
+            transform:
+                translate(-50%, -50%);
+
+        }
+
+
+        /* Hammer handle */
+
+        .cursor::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            width:
+                3px;
+
+            height:
+                28px;
+
+            left:
+                15px;
+
+            top:
+                2px;
+
+            background:
+                linear-gradient(
+                    white,
+                    var(--acid-green)
+                );
+
+            box-shadow:
+                0 0 8px var(--acid-green);
+
+            transform:
+                rotate(43deg);
+
+        }
+
+
+        /* Hammer head */
+
+        .cursor::after {
+
+            content: "";
+
+            position:
+                absolute;
+
+            width:
+                25px;
+
+            height:
+                8px;
+
+            left:
+                1px;
+
+            top:
+                11px;
+
+            border:
+                2px solid var(--acid-green);
+
+            border-radius:
+                3px 8px 3px 8px;
+
+            transform:
+                rotate(43deg);
+
+            box-shadow:
+                0 0 10px var(--acid-green);
+
+        }
+
+
+        .cursor.hit {
+
+            animation:
+                cursorImpact
+                0.35s
+                ease;
+
+        }
+
+
+        @keyframes cursorImpact {
+
+            50% {
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.8);
+
+                filter:
+                    brightness(2.5);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+
+            position:
+                fixed;
+
+            top:
+                0;
+
+            left:
+                0;
+
+            right:
+                0;
+
+            height:
+                74px;
+
+            z-index:
+                1000;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 6vw;
+
+            border-bottom:
+                1px solid var(--border);
+
+            background:
+                rgba(2, 8, 5, 0.78);
+
+            backdrop-filter:
+                blur(18px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                18px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                3px;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--acid-green);
+
+            text-shadow:
+                0 0 10px var(--acid-green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            gap:
+                27px;
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                10px;
+
+            font-weight:
+                600;
+
+            letter-spacing:
+                1.4px;
+
+            color:
+                #c7d8cc;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--acid-green);
+
+            text-shadow:
+                0 0 10px
+                rgba(57,255,20,.5);
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -8px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--acid-green);
+
+            box-shadow:
+                0 0 8px
+                var(--acid-green);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        .menu-button {
+
+            display:
+                none;
+
+            padding:
+                9px 13px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                transparent;
+
+            color:
+                var(--acid-green);
+
+            cursor:
+                pointer;
+
+        }
+
+
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+
+        section {
+
+            min-height:
+                100vh;
+
+            padding:
+                120px 7vw 80px;
+
+            position:
+                relative;
+
+        }
+
+
+        .container {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .section-kicker {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                4px;
+
+            margin-bottom:
+                17px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                clamp(40px, 6vw, 78px);
+
+            line-height:
+                .94;
+
+            letter-spacing:
+                -3px;
+
+        }
+
+
+        .section-description {
+
+            max-width:
+                700px;
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.8;
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                55px;
+
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        #home {
+
+            min-height:
+                100vh;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+        }
+
+
+        .hero-grid {
+
+            width:
+                100%;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.2fr .8fr;
+
+            gap:
+                50px;
+
+            align-items:
+                center;
+
+        }
+
+
+        .hero-kicker {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                4px;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .hero-title {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                clamp(55px, 9vw, 115px);
+
+            line-height:
+                .86;
+
+            letter-spacing:
+                -6px;
+
+            text-shadow:
+                0 0 35px
+                rgba(57,255,20,.15);
+
+        }
+
+
+        .hero-title span {
+
+            color:
+                var(--acid-green);
+
+            text-shadow:
+                0 0 25px
+                rgba(57,255,20,.45);
+
+        }
+
+
+        .hero-role {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                clamp(16px, 2vw, 22px);
+
+            letter-spacing:
+                2px;
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .hero-description {
+
+            max-width:
+                680px;
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.8;
+
+            margin-top:
+                18px;
+
+            font-size:
+                17px;
+
+        }
+
+
+        .availability {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                25px;
+
+            padding:
+                11px 15px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(4, 18, 10, .65);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                1.5px;
+
+        }
+
+
+        .availability-dot {
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--acid-green);
+
+            box-shadow:
+                0 0 14px var(--acid-green);
+
+            animation:
+                onlinePulse
+                1.5s
+                infinite;
+
+        }
+
+
+        @keyframes onlinePulse {
+
+            50% {
+
+                opacity:
+                    .3;
+
+                transform:
+                    scale(.7);
+
+            }
+
+        }
+
+
+        .hero-buttons {
+
+            display:
+                flex;
+
+            gap:
+                14px;
+
+            flex-wrap:
+                wrap;
+
+            margin-top:
+                30px;
+
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .button {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            display:
+                inline-block;
+
+            padding:
+                14px 20px;
+
+            border:
+                1px solid var(--acid-green);
+
+            background:
+                rgba(57,255,20,.06);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1.4px;
+
+            transition:
+                .25s;
+
+        }
+
+
+        .button::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.22),
+                    transparent
+                );
+
+            transform:
+                translateX(-110%);
+
+            transition:
+                .55s;
+
+        }
+
+
+        .button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 28px
+                rgba(57,255,20,.25);
+
+        }
+
+
+        .button:hover::before {
+
+            transform:
+                translateX(110%);
+
+        }
+
+
+        .button.primary {
+
+            background:
+                var(--acid-green);
+
+            color:
+                #031005;
+
+        }
+
+
+
+        /* =====================================================
+           ENERGY CORE
+        ===================================================== */
+
+        .energy-core {
+
+            width:
+                min(370px, 72vw);
+
+            aspect-ratio:
+                1;
+
+            margin:
+                auto;
+
+            position:
+                relative;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(57,255,20,.18),
+                    rgba(5,20,12,.15) 40%,
+                    transparent 70%
+                );
+
+            box-shadow:
+                0 0 100px
+                rgba(57,255,20,.13);
+
+            animation:
+                coreBreathing
+                3.5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        .energy-ring {
+
+            position:
+                absolute;
+
+            border-radius:
+                50%;
+
+            border:
+                1px dashed
+                rgba(57,255,20,.5);
+
+        }
+
+
+        .ring-1 {
+
+            inset:
+                4%;
+
+            animation:
+                rotateRing
+                14s
+                linear
+                infinite;
+
+        }
+
+
+        .ring-2 {
+
+            inset:
+                14%;
+
+            border-style:
+                solid;
+
+            animation:
+                rotateRing
+                9s
+                linear
+                reverse
+                infinite;
+
+        }
+
+
+        .ring-3 {
+
+            inset:
+                26%;
+
+            animation:
+                rotateRing
+                5s
+                linear
+                infinite;
+
+        }
+
+
+        .core-center {
+
+            position:
+                absolute;
+
+            inset:
+                36%;
+
+            border-radius:
+                50%;
+
+            border:
+                2px solid
+                var(--acid-green);
+
+            background:
+                radial-gradient(
+                    circle,
+                    white 0 4%,
+                    var(--acid-green) 9%,
+                    var(--emerald) 43%,
+                    transparent 72%
+                );
+
+            box-shadow:
+                0 0 55px
+                var(--acid-green),
+                inset 0 0 30px
+                var(--acid-green);
+
+        }
+
+
+        @keyframes coreBreathing {
+
+            50% {
+
+                transform:
+                    scale(1.05);
+
+                filter:
+                    brightness(1.25);
+
+            }
+
+        }
+
+
+        @keyframes rotateRing {
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SCROLL RETICLE
+        ===================================================== */
+
+        .scroll-reticle {
+
+            position:
+                absolute;
+
+            bottom:
+                32px;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                50%;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            animation:
+                reticlePulse
+                2s
+                infinite;
+
+        }
+
+
+        .scroll-reticle::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border:
+                1px solid var(--acid-green);
+
+            border-radius:
+                50%;
+
+        }
+
+
+        @keyframes reticlePulse {
+
+            50% {
+
+                box-shadow:
+                    0 0 25px
+                    rgba(57,255,20,.25);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           TECH PANEL
+        ===================================================== */
+
+        .panel {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--panel),
+                    rgba(2,9,6,.58)
+                );
+
+            box-shadow:
+                0 0 30px
+                rgba(57,255,20,.07);
+
+        }
+
+
+        .panel::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(57,255,20,.06),
+                    transparent 35%
+                );
+
+        }
+
+
+        .panel::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            top:
+                0;
+
+            left:
+                0;
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--acid-green);
+
+            box-shadow:
+                0 0 8px
+                var(--acid-green);
+
+        }
+
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.15fr .85fr;
+
+            gap:
+                22px;
+
+        }
+
+
+        .dossier {
+
+            padding:
+                32px;
+
+        }
+
+
+        .panel-label {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .dossier p {
+
+            color:
+                #c4d2c8;
+
+            line-height:
+                1.95;
+
+        }
+
+
+        .readout {
+
+            padding:
+                22px;
+
+        }
+
+
+        .readout-row {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid
+                rgba(57,255,20,.12);
+
+        }
+
+
+        .readout-row span {
+
+            color:
+                #71877a;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .readout-row strong {
+
+            text-align:
+                right;
+
+            font-size:
+                12px;
+
+        }
+
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                18px;
+
+        }
+
+
+        .skill-card {
+
+            padding:
+                23px;
+
+            transition:
+                .3s;
+
+        }
+
+
+        .skill-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                var(--border-bright);
+
+            box-shadow:
+                0 0 30px
+                rgba(57,255,20,.15);
+
+        }
+
+
+        .skill-top {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .skill-name {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                13px;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .skill-type {
+
+            color:
+                var(--muted);
+
+            font-size:
+                9px;
+
+        }
+
+
+        .skill-bar {
+
+            height:
+                5px;
+
+            background:
+                #102019;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .skill-bar i {
+
+            display:
+                block;
+
+            width:
+                var(--level);
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--emerald),
+                    var(--acid-green)
+                );
+
+            box-shadow:
+                0 0 12px
+                var(--acid-green);
+
+        }
+
+
+
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
+
+        .projects-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                20px;
+
+        }
+
+
+        .project-card {
+
+            min-height:
+                330px;
+
+            padding:
+                29px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                space-between;
+
+            transition:
+                .3s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform:
+                perspective(900px)
+                rotateX(2deg)
+                rotateY(-2deg);
+
+            border-color:
+                var(--acid-green);
+
+            box-shadow:
+                0 0 35px
+                rgba(57,255,20,.14);
+
+        }
+
+
+        .project-code {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+        }
+
+
+        .project-card h3 {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                22px;
+
+            line-height:
+                1.3;
+
+            margin-top:
+                17px;
+
+        }
+
+
+        .project-card h4 {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                12px;
+
+            margin-top:
+                7px;
+
+        }
+
+
+        .project-card p {
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.8;
+
+            margin-top:
+                17px;
+
+        }
+
+
+        .tags {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+
+        }
+
+
+        .tag {
+
+            padding:
+                7px 9px;
+
+            border:
+                1px solid
+                rgba(57,255,20,.2);
+
+            color:
+                #c8ddcf;
+
+            font-size:
+                9px;
+
+            background:
+                rgba(57,255,20,.03);
+
+        }
+
+
+        .impact-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                10px;
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .impact {
+
+            padding:
+                18px 8px;
+
+            border:
+                1px solid
+                rgba(57,255,20,.15);
+
+            text-align:
+                center;
+
+        }
+
+
+        .impact strong {
+
+            display:
+                block;
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                23px;
+
+        }
+
+
+        .impact span {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                8px;
+
+            margin-top:
+                6px;
+
+        }
+
+
+
+        /* =====================================================
+           EXPERIENCE TIMELINE
+        ===================================================== */
+
+        .timeline {
+
+            max-width:
+                900px;
+
+            margin:
+                auto;
+
+            position:
+                relative;
+
+        }
+
+
+        .timeline::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7px;
+
+            top:
+                0;
+
+            bottom:
+                0;
+
+            width:
+                1px;
+
+            background:
+                linear-gradient(
+                    var(--acid-green),
+                    rgba(57,255,20,.03)
+                );
+
+        }
+
+
+        .timeline-item {
+
+            position:
+                relative;
+
+            padding-left:
+                36px;
+
+            margin-bottom:
+                32px;
+
+        }
+
+
+        .timeline-node {
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                30px;
+
+            width:
+                15px;
+
+            height:
+                15px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--void);
+
+            border:
+                2px solid
+                var(--acid-green);
+
+            box-shadow:
+                0 0 16px
+                var(--acid-green);
+
+        }
+
+
+        .timeline-card {
+
+            padding:
+                27px;
+
+        }
+
+
+        .timeline-card small {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+        }
+
+
+        .timeline-card h3 {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                20px;
+
+            margin-top:
+                11px;
+
+        }
+
+
+        .timeline-card h4 {
+
+            color:
+                var(--acid-green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                11px;
+
+            margin-top:
+                7px;
+
+        }
+
+
+        .timeline-card p {
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.8;
+
+            margin-top:
+                15px;
+
+        }
+
+
+
+        /* =====================================================
+           RESUME
+        ===================================================== */
+
+        .resume-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .6fr 1.4fr;
+
+            gap:
+                22px;
+
+        }
+
+
+        .resume-info {
+
+            padding:
+                30px;
+
+            min-height:
+                650px;
+
+        }
+
+
+        .resume-info h3 {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                25px;
+
+            margin-bottom:
+                17px;
+
+        }
+
+
+        .resume-info p {
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.9;
+
+        }
+
+
+        .resume-buttons {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .resume-viewer {
+
+            min-height:
+                650px;
+
+            background:
+                #111;
+
+        }
+
+
+        .resume-viewer iframe {
+
+            width:
+                100%;
+
+            height:
+                650px;
+
+            border:
+                0;
+
+        }
+
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap:
+                22px;
+
+        }
+
+
+        .contact-info {
+
+            padding:
+                30px;
+
+        }
+
+
+        .contact-item {
+
+            padding:
+                18px 0;
+
+            border-bottom:
+                1px solid
+                rgba(57,255,20,.12);
+
+        }
+
+
+        .contact-item span {
+
+            display:
+                block;
+
+            color:
+                #71877a;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .contact-item a {
+
+            color:
+                #d8e8dd;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .contact-item a:hover {
+
+            color:
+                var(--acid-green);
+
+        }
+
+
+        .contact-form {
+
+            padding:
+                30px;
+
+        }
+
+
+        .contact-form label {
+
+            display:
+                block;
+
+            color:
+                #8ba395;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+
+            width:
+                100%;
+
+            background:
+                rgba(1,7,4,.8);
+
+            border:
+                1px solid
+                rgba(57,255,20,.18);
+
+            outline:
+                none;
+
+            color:
+                white;
+
+            padding:
+                14px;
+
+            margin-bottom:
+                18px;
+
+            transition:
+                .25s;
+
+        }
+
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+
+            border-color:
+                var(--acid-green);
+
+            box-shadow:
+                0 0 18px
+                rgba(57,255,20,.12);
+
+        }
+
+
+        .contact-form textarea {
+
+            min-height:
+                160px;
+
+            resize:
+                vertical;
+
+        }
+
+
+        #formStatus {
+
+            color:
+                var(--acid-green);
+
+            font-size:
+                11px;
+
+            margin-top:
+                15px;
+
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding:
+                30px 7vw;
+
+            border-top:
+                1px solid var(--border);
+
+            text-align:
+                center;
+
+            color:
+                #718579;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+        }
+
+
+        footer span {
+
+            color:
+                var(--acid-green);
+
+        }
+
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+
+        }
+
+
+        .reveal.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+
+        /* =====================================================
+           GLITCH EFFECT
+        ===================================================== */
+
+        .glitch {
+
+            animation:
+                glitchEffect
+                4s
+                infinite;
+
+        }
+
+
+        @keyframes glitchEffect {
+
+            0%,
+            92%,
+            100% {
+
+                transform:
+                    translateX(0);
+
+                opacity:
+                    1;
+
+            }
+
+            94% {
+
+                transform:
+                    translateX(3px);
+
+                opacity:
+                    .8;
+
+            }
+
+            96% {
+
+                transform:
+                    translateX(-3px);
+
+                opacity:
+                    .9;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+
+                display:
+                    none;
+
+                position:
+                    absolute;
+
+                top:
+                    74px;
+
+                left:
+                    0;
+
+                right:
+                    0;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    20px;
+
+                padding:
+                    25px;
+
+                background:
+                    rgba(2,8,5,.97);
+
+                border-bottom:
+                    1px solid var(--border);
+
+            }
+
+
+            .nav-links.active {
+
+                display:
+                    flex;
+
+            }
+
+
+            .menu-button {
+
+                display:
+                    block;
+
+            }
+
+
+            .hero-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .energy-core {
+
+                order:
+                    -1;
+
+                width:
+                    280px;
+
+            }
+
+
+            .about-grid,
+            .resume-grid,
+            .contact-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media(max-width: 600px) {
+
+            body {
+
+                cursor:
+                    auto;
+
+            }
+
+
+            .cursor {
+
+                display:
+                    none;
+
+            }
+
+
+            section {
+
+                padding:
+                    105px 5vw 65px;
+
+            }
+
+
+            .navbar {
+
+                padding:
+                    0 5vw;
+
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    50px;
+
+                letter-spacing:
+                    -3px;
+
+            }
+
+
+            .hero-role {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .skills-grid,
+            .projects-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .impact-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .resume-viewer iframe {
+
+                height:
+                    520px;
+
+            }
+
+
+            .resume-info {
+
+                min-height:
+                    auto;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
+
 <body>
-    <header>
-        <h1>BH<span style="color: red;">AR</span>AT</h1>
-        <nav>
-            <a href="#home"><span>Home</span></a>
-            <a href="#about"><span>About</span></a>
-            <a href="#projects"><span>Project</span></a>
-            <a href="#contact"><span>Contact</span></a>
-        </nav>
-    </header>
 
-    <!-- HOME SECTION -->
-    <section id="home" class="hero">
-        <img src="./img.jpg" alt="Profile Picture">
-        <div class="hero-text">
-            <h2>
-                I am 
-                <span>
-                    <span>BHARAT</span>
-                    <span>a Coder</span>
-                    <span>a Graphics Designer</span>
-                    <span>a Programmer</span>
-                    <span>a developer</span>
-                </span>
-            </h2>
-            <h2>Welcome to My Portfolio 👋</h2>
-            <p>
-                Hi, I'm <strong>Elow</strong> — a creative developer and designer who blends art with code.  
-                I enjoy transforming ideas into digital experiences that are both visually appealing and technically sound.  
-                Scroll down to learn more about me and my work!
-            </p>
-        </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-container">
-                <div class="about-image">
-                <img src="./sportsCar.jpg" alt="About Image">
-                </div>
+    <!-- =====================================================
+         PARTICLES
+    ====================================================== -->
 
-                <div class="about-text">
-                <p>
-                    I'm a passionate programmer and designer who loves working with modern web technologies.  
-                    My goal is to build websites and applications that are functional, user-friendly, and visually engaging.  
-                    I enjoy exploring new tools, experimenting with animation effects, and constantly learning to improve my craft.  
-                    When I'm not coding, you'll probably find me designing graphics or brainstorming creative ideas for my next project.
-                </p>
-                </div>
-            </div>
-            
-            <!-- SKILLS SECTION -->
-            <div class="skills-section">
-            <h2>Skills</h2>
+    <div id="particles"></div>
 
-            <!-- Programming Languages -->
-            <div class="skills-category">
-                <h3>💻 Programming Languages</h3>
-                <div class="skills-grid">
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
-                <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
-                </div>
-            </div>
 
-  <!-- Graphic Design -->
-  <div class="skills-category">
-    <h3>🎨 Graphic Design</h3>
-    <div class="skills-grid">
-      <div class="skill bright-bg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator"><span>Adobe Illustrator</span></div>
-      <div class="skill bright-bg"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop"><span>Adobe Photoshop</span></div>
-      <div class="skill bright-bg"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="Canva"><span>Canva</span></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
+    <!-- =====================================================
+         CUSTOM CURSOR
+    ====================================================== -->
+
+    <div class="cursor"
+         id="cursor">
     </div>
-  </div>
-</div>
-
-        </section>
 
 
 
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
 
+    <header class="navbar">
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-grid">
-        
-        <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🌐 Personal Portfolio Website</h3>
-                <p>A clean, responsive portfolio showcasing your skills, projects, and contact form — built with HTML, CSS, and JS.</p>
-            </div>
+        <a href="#home"
+           class="logo">
+
+            AVINASH
+            <span>//</span>
+            S
+
         </a>
 
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>📊 Vote Counter App</h3>
-                <p>Simple JavaScript app to count and display which party or person received the highest votes.</p>
+
+        <nav class="nav-links"
+             id="navLinks">
+
+            <a href="#about">
+                ORIGIN
+            </a>
+
+            <a href="#skills">
+                ARSENAL
+            </a>
+
+            <a href="#projects">
+                MISSIONS
+            </a>
+
+            <a href="#experience">
+                DEPLOYMENT
+            </a>
+
+            <a href="#resume">
+                RESUME
+            </a>
+
+            <a href="#contact">
+                COMMS
+            </a>
+
+        </nav>
+
+
+        <button class="menu-button"
+                id="menuButton">
+
+            MENU
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section id="home">
+
+        <div class="container">
+
+            <div class="hero-grid">
+
+
+                <!-- HERO TEXT -->
+
+                <div class="hero-content">
+
+                    <div class="hero-kicker">
+
+                        DOOMSDAY PROTOCOL
+                        //
+                        ONLINE
+
+                    </div>
+
+
+                    <h1 class="hero-title glitch">
+
+                        AVINASH
+
+                        <br>
+
+                        <span>S</span>
+
+                    </h1>
+
+
+                    <div class="hero-role">
+
+                        FRESHER SOFTWARE ENGINEER
+
+                    </div>
+
+
+                    <p class="hero-description">
+
+                        Python
+                        ·
+                        Web Development
+                        ·
+                        SQL
+                        ·
+                        AI Chatbot
+
+                        <br><br>
+
+                        Building practical digital systems
+                        with a cinematic,
+                        engineering-first mindset.
+
+                    </p>
+
+
+                    <div class="availability">
+
+                        <span class="availability-dot"></span>
+
+                        AVAILABLE FOR ENTRY-LEVEL OPPORTUNITIES
+
+                    </div>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects"
+                           class="button primary">
+
+                            VIEW MISSION FILES
+
+                        </a>
+
+
+                        <a href="Avinash_Resume.pdf"
+                           target="_blank"
+                           class="button">
+
+                            OPEN RESUME
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ENERGY CORE -->
+
+                <div class="energy-core">
+
+                    <div class="energy-ring ring-1"></div>
+
+                    <div class="energy-ring ring-2"></div>
+
+                    <div class="energy-ring ring-3"></div>
+
+                    <div class="core-center"></div>
+
+                </div>
+
+
             </div>
-         </a>
 
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>💫 3D Profile Card</h3>
-                <p>An interactive rotating card displaying your profile details and social links — using CSS 3D transforms.</p>
-            </div>
-         </a>
-        
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🎨 Crystal Nav Website</h3>
-                <p>A stylish navigation bar with a crystal-glass hover effect and smooth UI design using HTML & CSS.</p>
-            </div>
-         </a>
-
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🧾 To-Do List App</h3>
-                <p>A simple to-do list that allows adding, deleting, and saving tasks with local storage support.</p>
-            </div>
-         </a>
-
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🍛 Curry Maker Website</h3>
-                <p>A fun drag-and-drop game where you mix ingredients in a bowl to make curry — built with JavaScript.</p>
-            </div>
-         </a>
-
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🎁 MLBB Giveaway Page</h3>
-                <p>Interactive giveaway website for Mobile Legends players — includes a name entry and live spin feature.</p>
-            </div>
-         </a>
-
-         <a href="../404-page.Folder/index.html">
-            <div class="project-card">
-                <h3>🕰️ Digital Clock</h3>
-                <p>A live digital clock that updates every second — styled with glowing glass effects and smooth animations.</p>
-            </div>
-         </a>
-
-    </div>
-</section>
+        </div>
 
 
-    <!-- CONTACT SECTION -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Interested in working together or just want to say hi? Let’s connect!</p>
+        <a href="#about"
+           class="scroll-reticle">
 
-            <div class="contact-links">
-                <a href="dropifybharat@gmail.com?subject=Hello%20Elow&body=Hi%20there!%20I%20loved%20your%20portfolio.">
-                <i class="fa-solid fa-envelope"></i> Email
-                </a>
-                <a href="https://www.instagram.com/bharat-codie" target="_blank">
-                <i class="fa-brands fa-instagram"></i> Instagram
-                </a>
-                <a href="https://github.com/bharat-codie" target="_blank">
-                <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a href="https://www.threads.com/@bharat-codie" target="_blank">
-                <i class="fa-brands fa-threads"></i> Threads
-                </a>
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section id="about"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    01 //
+                    ORIGIN PROTOCOL
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    CLASSIFIED
+
+                    <br>
+
+                    PROFILE
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Mission briefing extracted from the
+                    personnel dossier.
+
+                </p>
+
             </div>
 
-        </section>
 
-        <footer>© 2025 Bharat. All Rights Reserved.</footer>
 
+            <div class="about-grid">
+
+
+                <!-- DOSSIER -->
+
+                <div class="panel dossier">
+
+                    <div class="panel-label">
+
+                        PERSONNEL BRIEFING
+
+                    </div>
+
+
+                    <p>
+
+                        Recent B.Sc. Computer Science with
+                        Artificial Intelligence graduate with
+                        foundational knowledge in Python,
+                        Web Development, and SQL.
+
+                        <br><br>
+
+                        Completed a hands-on AI chatbot project
+                        during college and an
+                        AICTE-recognized space internship.
+
+                        <br><br>
+
+                        A quick learner looking for an
+                        entry-level opportunity to grow and
+                        gain practical industry experience.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- READOUT -->
+
+                <div class="panel readout">
+
+
+                    <div class="readout-row">
+
+                        <span>
+                            EDUCATION
+                        </span>
+
+                        <strong>
+                            B.Sc. CS WITH AI
+                        </strong>
+
+                    </div>
+
+
+                    <div class="readout-row">
+
+                        <span>
+                            COLLEGE
+                        </span>
+
+                        <strong>
+                            SA COLLEGE OF ARTS AND SCIENCE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="readout-row">
+
+                        <span>
+                            LOCATION
+                        </span>
+
+                        <strong>
+                            CHENNAI, INDIA
+                        </strong>
+
+                    </div>
+
+
+                    <div class="readout-row">
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong>
+                            FRESHER / OPEN
+                        </strong>
+
+                    </div>
+
+
+                    <div class="readout-row">
+
+                        <span>
+                            LANGUAGES
+                        </span>
+
+                        <strong>
+                            TAMIL · ENGLISH
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS
+    ====================================================== -->
+
+    <section id="skills"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    02 //
+                    ARSENAL
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    TECH
+
+                    <br>
+
+                    LOADOUT
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Technologies and tools from my
+                    current technical skill set.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="skills-grid">
+
+
+                <!-- PYTHON -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            PYTHON
+                        </span>
+
+                        <span class="skill-type">
+                            BASIC
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:72%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SQL -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            SQL
+                        </span>
+
+                        <span class="skill-type">
+                            BASIC
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:72%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HTML -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            HTML
+                        </span>
+
+                        <span class="skill-type">
+                            WEB
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:82%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CSS -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            CSS
+                        </span>
+
+                        <span class="skill-type">
+                            WEB
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:78%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JAVASCRIPT -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            JAVASCRIPT
+                        </span>
+
+                        <span class="skill-type">
+                            BASIC
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:68%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STREAMLIT -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            STREAMLIT
+                        </span>
+
+                        <span class="skill-type">
+                            FRAMEWORK
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:70%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GIT -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            GIT
+                        </span>
+
+                        <span class="skill-type">
+                            TOOLS
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:66%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SQLITE -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            SQLITE3
+                        </span>
+
+                        <span class="skill-type">
+                            DATABASE
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:66%"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MYSQL -->
+
+                <div class="panel skill-card">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+                            MYSQL
+                        </span>
+
+                        <span class="skill-type">
+                            BASIC
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <i style="--level:60%"></i>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section id="projects"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    03 //
+                    MISSION FILES
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    PROJECT
+
+                    <br>
+
+                    ARCHIVE
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT -->
+
+                <article class="panel project-card">
+
+                    <div>
+
+                        <div class="project-code">
+
+                            MISSION 001
+                            //
+                            2025—2026
+
+                        </div>
+
+
+                        <h3>
+
+                            SA COLLEGE
+                            STUDENT PORTAL
+
+                        </h3>
+
+
+                        <h4>
+
+                            + COLLEGEGPT
+
+                        </h4>
+
+
+                        <p>
+
+                            Full-stack web application designed
+                            to digitize college admissions.
+
+                            <br><br>
+
+                            Includes a rule-based AI chatbot,
+                            secure login, exam module,
+                            automated PDF certificates and
+                            an admin dashboard.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            PYTHON
+                        </span>
+
+                        <span class="tag">
+                            STREAMLIT
+                        </span>
+
+                        <span class="tag">
+                            SQLITE3
+                        </span>
+
+                        <span class="tag">
+                            REPORTLAB
+                        </span>
+
+                        <span class="tag">
+                            RULE-BASED NLP
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMPACT -->
+
+                <article class="panel project-card">
+
+                    <div>
+
+                        <div class="project-code">
+
+                            IMPACT LOG
+
+                        </div>
+
+
+                        <h3>
+
+                            PROCESS
+                            DIGITIZATION
+
+                        </h3>
+
+
+                        <p>
+
+                            The project documentation reports
+                            an 80% reduction in processing time
+                            for the college admissions workflow.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="impact-grid">
+
+
+                        <div class="impact">
+
+                            <strong>
+                                80%
+                            </strong>
+
+                            <span>
+                                TIME REDUCTION
+                            </span>
+
+                        </div>
+
+
+                        <div class="impact">
+
+                            <strong>
+                                15+
+                            </strong>
+
+                            <span>
+                                QUERY CATEGORIES
+                            </span>
+
+                        </div>
+
+
+                        <div class="impact">
+
+                            <strong>
+                                24/7
+                            </strong>
+
+                            <span>
+                                CHATBOT
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section id="experience"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    04 //
+                    DEPLOYMENT LOG
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    FIELD
+
+                    <br>
+
+                    RECORD
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="timeline">
+
+
+                <!-- INTERNSHIP -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-node"></div>
+
+
+                    <div class="panel timeline-card">
+
+                        <small>
+
+                            MAR 2025
+                            ·
+                            8 WEEKS / 80+ HRS
+
+                        </small>
+
+
+                        <h3>
+
+                            SPACE TECHNOLOGY INTERN
+
+                        </h3>
+
+
+                        <h4>
+
+                            AGNIRVA SPACE
+
+                        </h4>
+
+
+                        <p>
+
+                            AICTE-recognized internship.
+
+                            Completed 440+ steps of structured
+                            learning in space science,
+                            satellite technology and data analysis.
+
+                            <br><br>
+
+                            Worked on real-world problem statements
+                            and technical report preparation.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EDUCATION -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-node"></div>
+
+
+                    <div class="panel timeline-card">
+
+                        <small>
+
+                            2023 — 2026
+                            ·
+                            COMPLETED
+
+                        </small>
+
+
+                        <h3>
+
+                            B.SC. COMPUTER SCIENCE
+
+                        </h3>
+
+
+                        <h4>
+
+                            WITH ARTIFICIAL INTELLIGENCE
+
+                        </h4>
+
+
+                        <p>
+
+                            SA College of Arts and Science,
+                            Avadi, Chennai.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROJECT -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-node"></div>
+
+
+                    <div class="panel timeline-card">
+
+                        <small>
+
+                            2025 — 2026
+
+                        </small>
+
+
+                        <h3>
+
+                            COLLEGEGPT
+
+                        </h3>
+
+
+                        <h4>
+
+                            STUDENT PORTAL PROJECT
+
+                        </h4>
+
+
+                        <p>
+
+                            Developed a practical college portal
+                            and rule-based chatbot with authentication,
+                            exam handling, PDF generation and analytics.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESUME
+    ====================================================== -->
+
+    <section id="resume"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    05 //
+                    PERSONNEL DOSSIER
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    MY
+
+                    <br>
+
+                    RESUME
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Complete professional resume dossier.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="resume-grid">
+
+
+                <!-- RESUME INFO -->
+
+                <div class="panel resume-info">
+
+                    <div class="panel-label">
+
+                        RESUME ACCESS
+
+                    </div>
+
+
+                    <h3>
+
+                        AVINASH S
+
+                    </h3>
+
+
+                    <p>
+
+                        Fresher Software Engineer
+
+                        <br><br>
+
+                        Python
+                        ·
+                        Web Development
+                        ·
+                        SQL
+                        ·
+                        AI Chatbot
+
+                        <br><br>
+
+                        B.Sc. Computer Science with
+                        Artificial Intelligence
+
+                    </p>
+
+
+                    <div class="resume-buttons">
+
+
+                        <a href="Avinash_Resume.pdf"
+                           target="_blank"
+                           class="button primary">
+
+                            OPEN PDF
+
+                        </a>
+
+
+                        <a href="Avinash_Resume.pdf"
+                           download
+                           class="button">
+
+                            DOWNLOAD
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PDF VIEWER -->
+
+                <div class="panel resume-viewer">
+
+                    <iframe
+                        src="Avinash_Resume.pdf"
+                        title="Avinash S Resume">
+
+                    </iframe>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section id="contact"
+             class="reveal">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="section-kicker">
+
+                    06 //
+                    OPEN COMMS
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    SECURE
+
+                    <br>
+
+                    TRANSMISSION
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Connect with me for entry-level software
+                    engineering opportunities.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="contact-grid">
+
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="panel contact-info">
+
+
+                    <div class="contact-item">
+
+                        <span>
+                            EMAIL
+                        </span>
+
+                        <a href="mailto:avinash15072005@gmail.com">
+
+                            avinash15072005@gmail.com
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+                        <span>
+                            PHONE
+                        </span>
+
+                        <a href="tel:+918608517399">
+
+                            +91-8608517399
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+                        <span>
+                            LINKEDIN
+                        </span>
+
+                        <a href="https://linkedin.com/in/avinash-s"
+                           target="_blank">
+
+                            linkedin.com/in/avinash-s
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+                        <span>
+                            LOCATION
+                        </span>
+
+                        <p>
+
+                            Chennai, India
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CONTACT FORM -->
+
+                <form class="panel contact-form"
+                      id="contactForm">
+
+
+                    <label>
+
+                        IDENTIFICATION
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required>
+
+
+
+                    <label>
+
+                        RETURN CHANNEL
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="your@email.com"
+                        required>
+
+
+
+                    <label>
+
+                        TRANSMISSION
+
+                    </label>
+
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your message..."
+                        required>
+                    </textarea>
+
+
+
+                    <button
+                        type="submit"
+                        class="button primary">
+
+                        TRANSMIT MESSAGE
+
+                    </button>
+
+
+                    <p id="formStatus"></p>
+
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        AVINASH S
+
+        <span>
+            //
+        </span>
+
+        DOOMSDAY PROTOCOL
+
+        <span>
+            //
+        </span>
+
+        SOFTWARE ENGINEER PORTFOLIO
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         ALL JAVASCRIPT
+    ====================================================== -->
 
     <script>
-        document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
 
-            if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop - 80, // offset for fixed header
-                behavior: 'smooth'
-            });
+
+        /* =====================================================
+           CREATE PARTICLES
+        ===================================================== */
+
+        const particleContainer =
+            document.getElementById("particles");
+
+
+        for (
+            let i = 0;
+            i < 65;
+            i++
+        ) {
+
+            const particle =
+                document.createElement("div");
+
+
+            particle.className =
+                "particle";
+
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+
+            particle.style.animationDuration =
+                (7 + Math.random() * 15) + "s";
+
+
+            particle.style.animationDelay =
+                (-Math.random() * 15) + "s";
+
+
+            particle.style.opacity =
+                0.15 + Math.random() * 0.6;
+
+
+            particleContainer.appendChild(
+                particle
+            );
+
+        }
+
+
+
+        /* =====================================================
+           CUSTOM CURSOR
+        ===================================================== */
+
+        const cursor =
+            document.getElementById("cursor");
+
+
+        let mouseX =
+            window.innerWidth / 2;
+
+
+        let mouseY =
+            window.innerHeight / 2;
+
+
+        let cursorX =
+            mouseX;
+
+
+        let cursorY =
+            mouseY;
+
+
+        document.addEventListener(
+            "mousemove",
+            function(event) {
+
+                mouseX =
+                    event.clientX;
+
+                mouseY =
+                    event.clientY;
+
             }
-        });
-        });
+        );
+
+
+        function animateCursor() {
+
+            cursorX +=
+                (mouseX - cursorX) * .25;
+
+
+            cursorY +=
+                (mouseY - cursorY) * .25;
+
+
+            cursor.style.left =
+                cursorX + "px";
+
+
+            cursor.style.top =
+                cursorY + "px";
+
+
+            requestAnimationFrame(
+                animateCursor
+            );
+
+        }
+
+
+        animateCursor();
+
+
+
+        /* =====================================================
+           CURSOR CLICK IMPACT
+        ===================================================== */
+
+        document.addEventListener(
+            "click",
+            function() {
+
+                cursor.classList.remove(
+                    "hit"
+                );
+
+
+                void cursor.offsetWidth;
+
+
+                cursor.classList.add(
+                    "hit"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuButton =
+            document.getElementById(
+                "menuButton"
+            );
+
+
+        const navLinks =
+            document.getElementById(
+                "navLinks"
+            );
+
+
+        menuButton.addEventListener(
+            "click",
+            function() {
+
+                navLinks.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".nav-links a"
+            )
+            .forEach(
+                function(link) {
+
+                    link.addEventListener(
+                        "click",
+                        function() {
+
+                            navLinks.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                function(entries) {
+
+                    entries.forEach(
+                        function(entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "show"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+
+        revealElements.forEach(
+            function(element) {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        const contactForm =
+            document.getElementById(
+                "contactForm"
+            );
+
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim();
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    ).value.trim();
+
+
+                const subject =
+                    encodeURIComponent(
+                        "Portfolio Contact from " +
+                        name
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+
+                        "Name: " +
+                        name +
+
+                        "\nEmail: " +
+                        email +
+
+                        "\n\nMessage:\n" +
+                        message
+
+                    );
+
+
+                const mailURL =
+                    "mailto:avinash15072005@gmail.com" +
+                    "?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
+
+
+                document.getElementById(
+                    "formStatus"
+                ).textContent =
+                    "OPENING TRANSMISSION CHANNEL...";
+
+
+                window.location.href =
+                    mailURL;
+
+            }
+        );
+
+
+
+        /* =====================================================
+           BUTTON RIPPLE
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".button"
+            )
+            .forEach(
+                function(button) {
+
+                    button.addEventListener(
+                        "click",
+                        function(event) {
+
+                            const ripple =
+                                document.createElement(
+                                    "span"
+                                );
+
+
+                            ripple.style.position =
+                                "absolute";
+
+
+                            ripple.style.width =
+                                "10px";
+
+
+                            ripple.style.height =
+                                "10px";
+
+
+                            ripple.style.borderRadius =
+                                "50%";
+
+
+                            ripple.style.background =
+                                "rgba(255,255,255,.5)";
+
+
+                            ripple.style.left =
+                                event.offsetX + "px";
+
+
+                            ripple.style.top =
+                                event.offsetY + "px";
+
+
+                            ripple.style.pointerEvents =
+                                "none";
+
+
+                            this.appendChild(
+                                ripple
+                            );
+
+
+                            setTimeout(
+                                function() {
+
+                                    ripple.remove();
+
+                                },
+                                400
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        /* =====================================================
+           CONSOLE MESSAGE
+        ===================================================== */
+
+        console.log(
+
+`
+========================================
+
+        AVINASH S
+        DOOMSDAY PROTOCOL
+
+        SYSTEM ONLINE
+
+        Python
+        Web Development
+        SQL
+        AI Chatbot
+
+========================================
+`
+
+        );
+
     </script>
 
+
 </body>
+
 </html>
-
-
-
